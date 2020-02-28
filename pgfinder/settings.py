@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import pymysql
+pymysql.version_info = (1, 3, 13, "final", 0)
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')                              #..!
-
-
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -81,8 +82,13 @@ WSGI_APPLICATION = 'pgfinder.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),    
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pg_db',
+        'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'PORT': '3306',
+
     }
 }
 
@@ -122,12 +128,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-
-
-
 STATIC_URL = '/assets/'                                 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 
 MEDIA_URL = '/media/' 
-MEDIA_ROOT = os.path.join(BASE_DIR , 'media')   
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
