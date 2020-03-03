@@ -21,4 +21,5 @@ from backend_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index_page),
+    url(r'^registration/$', views.registration_page)
 ]
