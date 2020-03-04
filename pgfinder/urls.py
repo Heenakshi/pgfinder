@@ -19,7 +19,8 @@ from django.conf.urls import url
 from backend_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('/admin/', admin.site.urls),
     url(r'^$', views.index_page),
-    url(r'^registration/$', views.registration_page)
+    url('registration/', views.registration_page),
+    url('/addregistration/', views.add_registration),
 ]
