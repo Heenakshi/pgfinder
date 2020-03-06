@@ -21,6 +21,9 @@ from backend_app import views
 urlpatterns = [
     path('/admin/', admin.site.urls),
     url(r'^$', views.index_page),
-    url('registration/', views.registration_page),
-    url('/addregistration/', views.add_registration),
+    url('^registration/$', views.registration_page),
+    url('^verify/$', views.verify_link),
+    url('^login/$', views.login_page),
+
+
 ]

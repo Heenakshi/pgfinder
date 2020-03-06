@@ -1,9 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from backend_app.forms import PgUserDetailForm
 from django.contrib.auth.hashers import make_password
 from misc_files.generic_functions import verify_mail_send, generate_string
-from backend_app.models import UserRole
+from backend_app.models import UserRole, PgUserDetail
 
 
 def index_page(request):
@@ -11,10 +11,6 @@ def index_page(request):
 
 
 def registration_page(request):
-    return render(request, "registration.html")
-
-
-def add_registration(request):
     if request.method == "POST":
         data = UserRole.objects.get(role_name='pg').role_id
         role_form = PgUserDetailForm(request.POST)
@@ -36,3 +32,22 @@ def add_registration(request):
             return HttpResponse("<h1>Form is not valid</h1>")
     return render(request, "registration.html")
 
+
+
+def verify_link(request):
+    try:
+         token = request.GET['token']
+    except Exception as error:
+         return HttpResponse("Invalid {}".format(error))
+    else:
+        data = PgUserDetail.objects.filter(verify_link=token).exists()
+        if data is True:
+            update = PgUserDetail(email=PgUserDetail.objects.get(verify_link=token).email, verify_link="", is_active=1)
+            update.save(update_fields=['verify_link', 'is_active'])
+            return redirect("/login/")
+        else:
+            return HttpResponse("Invalid Token")
+
+
+def login_page(request):
+    return render(request, "login.html")

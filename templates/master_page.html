@@ -6,20 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>
-      {% block title %}
-      {% endblock %}
-  </title>
+  <title>{% block title %}{% endblock %}</title>
 
   <!-- Bootstrap -->
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/assets/css/animate.css">
-  <link href="/assets/css/animate.min.css" rel="stylesheet">
-  <link href="/assets/css/style.css" rel="stylesheet" />
-  {% block css %}
-  {% endblock %}
- 
+  <link href="/assets/frontapp_assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/frontapp_assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/frontapp_assets/css/animate.css">
+  <link href="/assets/frontapp_assets/css/animate.min.css" rel="stylesheet">
+  <link href="/assets/frontapp_assets/css/style.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -34,7 +29,7 @@
                         <span class="icon-bar"></span>
                     </button>
           <div class="navbar-brand">
-            <a href="index.html"><h1>PG Finder</h1></a>
+            <a href="index.html"><h1>Day</h1></a>
           </div>
         </div>
         <div class="navbar-collapse collapse">
@@ -45,7 +40,8 @@
               <li role="presentation"><a href="services.html">Services</a></li>
               <li role="presentation"><a href="gallery.html">Gallery</a></li>
               <li role="presentation"><a href="contact.html">Contact</a></li>
-              <li role="presentation"><a href="/registration/">PG Registration</a></li>
+              <li role="presentation"><a href="/registration/">Registration</a></li>
+              <li role="presentation"><a href="/login/">Login</a></li>
             </ul>
           </div>
         </div>
@@ -68,10 +64,10 @@
 
         <div class="carousel-inner">
           <div class="item active">
-            <img src="/assets/img/slide.jpg" class="img-responsive" alt="">
+            <img src="/assets/frontapp_assets/img/slide.jpg" class="img-responsive" alt="">
             <div class="carousel-caption">
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
-                <h2><span>PG Finder</span></h2>
+                <h2><span>Clean & Modern Design Template</span></h2>
               </div>
               <div class="col-md-10 col-md-offset-1">
                 <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
@@ -81,7 +77,10 @@
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
                 <form class="form-inline">
                   <div class="form-group">
-                    <input type="submit" name="search" class="btn btn-primary btn-lg" value="Search...">
+                    <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">Live Demo</button>
+                  </div>
+                  <div class="form-group">
+                    <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">Get Now</button>
                   </div>
                 </form>
               </div>
@@ -89,7 +88,7 @@
           </div>
 
           <div class="item">
-            <img src="/assets/img/slide.jpg" class="img-responsive" alt="">
+            <img src="/assets/frontapp_assets/img/slide.jpg" class="img-responsive" alt="">
             <div class="carousel-caption">
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">
                 <h2>Fully Responsive</h2>
@@ -112,7 +111,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="/assets/img/slide.jpg" class="img-responsive" alt="">
+            <img src="/assets/frontapp_assets/img/slide.jpg" class="img-responsive" alt="">
             <div class="carousel-caption">
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
                 <h2>Modern Design</h2>
@@ -150,8 +149,7 @@
   </div>
   <!--/#slider-->
 
-{% block content %}
-{% endblock %}
+{% block content %}{% endblock %}
 
   <footer>
     <div class="container">
@@ -171,12 +169,12 @@
         <div class="text-center">
           <h4>Photo Gallery</h4>
           <ul class="sidebar-gallery">
-            <li><a href="#"><img src="/assets/img/gallery1.png" alt="" /></a></li>
-            <li><a href="#"><img src="/assets/img/gallery2.png" alt="" /></a></li>
-            <li><a href="#"><img src="/assets/img/gallery3.png" alt="" /></a></li>
-            <li><a href="#"><img src="/assets/img/gallery4.png" alt="" /></a></li>
-            <li><a href="#"><img src="/assets/img/gallery5.png" alt="" /></a></li>
-            <li><a href="#"><img src="/assets/img/gallery6.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery1.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery2.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery3.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery4.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery5.png" alt="" /></a></li>
+            <li><a href="#"><img src="/assets/frontapp_assets/img/gallery6.png" alt="" /></a></li>
           </ul>
         </div>
       </div>
@@ -230,11 +228,11 @@
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/jquery-migrate.min.js"></script>
+  <script src="/assets/frontapp_assets/js/jquery.min.js"></script>
+  <script src="/assets/frontapp_assets/js/jquery-migrate.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="/assets/js/bootstrap.min.js"></script>
-  <script src="/assets/js/wow.min.js"></script>
+  <script src="/assets/frontapp_assets/js/bootstrap.min.js"></script>
+  <script src="/assets/frontapp_assets/js/wow.min.js"></script>
   <script>
     wow = new WOW({}).init();
   </script>
