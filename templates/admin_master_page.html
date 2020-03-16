@@ -284,7 +284,7 @@
                 <a href="#"><i class="icon_profile"></i> My Profile</a>
               </li>
               <li>
-                <a href="#"><i class="icon_key_alt"></i> Update password</a>
+                <a href="/update_password/"><i class="icon_key_alt"></i> Update password</a>
               </li>
               <li>
                 <a href="/logout/"><i class="icon_key_alt"></i> Log Out</a>
@@ -305,7 +305,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="/pg/admin_index/">
+            <a class="" href="/pg/pg_index/">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -382,9 +382,22 @@
 
     <!--main content start-->
     <section id="main-content">
+        <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i>Home</a></li>
+              <li><i class="fa fa-laptop"></i>{% block header %}Dashboard{% endblock %}</li>
+            </ol>
+          </div>
+        </div>
+
       {% block content %}
 
       {% endblock %}
+            </section>
       <div class="text-right">
         <div class="credits">
           <!--
