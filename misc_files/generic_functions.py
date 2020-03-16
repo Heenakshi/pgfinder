@@ -24,5 +24,3 @@ def verify_mail_send(to_address, name, link):
     server.login("neehee6343@gmail.com","neeraj12345")
     text = msg.as_string()
     server.sendmail("neehee6343@gmail.com", to_address,text)
-
-

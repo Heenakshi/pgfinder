@@ -9,3 +9,6 @@ def pg_index(request):
             return render(request, "pg_index.html")
     except:
         return redirect('/')
+
+def update_password(request):
+    return render(request, "update_password.html", {})
