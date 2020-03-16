@@ -85,8 +85,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pg_db',
         'HOST': '127.0.0.1',
-        'USER': 'root',
-        'PASSWORD': '1234',
+        'USER': 'pg_finder',
+        'PASSWORD': 'pg_finder',
         'PORT': '3306',
 
     }

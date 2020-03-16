@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url, include
 from backend_app import views
 
 urlpatterns = [
     path('/admin/', admin.site.urls),
+    url(r'^pg/', include('pg_app.urls')),
     url(r'^$', views.index_page),
-    url('^registration/$', views.registration_page),
+    url('^registration/$', views.pg_registration_page),
     url('^verify/$', views.verify_link),
     url('^login/$', views.login_page),
-
-
+    url('^logout/$', views.logout),
 ]
