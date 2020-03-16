@@ -26,4 +26,5 @@ urlpatterns = [
     url('^verify/$', views.verify_link),
     url('^login/$', views.login_page),
     url('^logout/$', views.logout),
+
 ]

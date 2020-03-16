@@ -9,3 +9,6 @@ def admin_index(request):
             return render(request, "admin_index.html")
     except:
         return redirect('/')
+
+def update_password(request):
+    return render(request, "update_password.html", {})
