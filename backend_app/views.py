@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from misc_files.generic_functions import verify_mail_send, generate_string
 from backend_app.models import UserRole, PgUserDetail
 from django.contrib.auth.views import auth_logout
+from misc_files.authentication import authorize
 
 
 def index_page(request):
@@ -62,7 +63,7 @@ def login_page(request):
                     request.session['name'] = data.name
                     request.session['email'] = data.email
                     if role == "pg":
-                        return redirect('/pg/admin_index/')
+                        return redirect('/pg/pg_index/')
                 else:
                     if data.verify_link == "":
                         string = make_password(generate_string()).replace("+", "")
@@ -83,4 +84,26 @@ def login_page(request):
 def logout(request):
     auth_logout(request)
     return redirect('/')
+
+
+def update_password(request):
+    try:
+        auth = authorize(request.session['auth'], request.session['role'], request.session['role'])
+        if auth is True:
+            if request.method == "POST":
+                old_password = request.POST['o_pass']
+                new_password = request.POST['n_pass']
+                confirm_password = request.POST['c_pass']
+                if check_password(old_password, PgUserDetail.objects.get(email=request.session['email']).password):
+                    if new_password == confirm_password:
+                        update = PgUserDetail(email=request.session['email'], password=make_password(new_password))
+                        update.save(update_fields=['password'])
+                        return redirect('/pg/pg_index/')
+                    else:
+                        return render(request, "update_password.html", {'c_pass_match': True})
+                else:
+                    return render(request, "update_password.html", {'o_pass_match': True})
+            return render(request, "update_password.html")
+    except:
+        return redirect('/')
 
